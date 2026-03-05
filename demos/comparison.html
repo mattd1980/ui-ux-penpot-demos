@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design System Comparison: Generic vs Content Mogul</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #f5f5f5;
+            padding: 40px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            margin-bottom: 32px;
+            color: #111827;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+        
+        .section {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+        
+        .generic { border-left: 4px solid #3B82F6; }
+        .mogul { border-left: 4px solid #9333ea; }
+        
+        .color-swatches {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .swatch {
+            aspect-ratio: 1;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            color: white;
+            text-align: center;
+            padding: 8px;
+            font-weight: 500;
+        }
+        
+        .swatch .name {
+            font-size: 10px;
+            opacity: 0.9;
+            margin-top: 4px;
+        }
+        
+        .card-demo {
+            margin-top: 16px;
+        }
+        
+        /* Generic Style */
+        .generic-card {
+            font-family: 'Inter', sans-serif;
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.16s ease;
+        }
+        
+        .generic-card:hover {
+            border-color: #D1D5DB;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        .generic-card .image {
+            width: 100%;
+            height: 120px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 12px;
+        }
+        
+        .generic-card .content {
+            padding: 16px;
+        }
+        
+        .generic-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #3B82F6;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .generic-card .title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 6px 0;
+        }
+        
+        .generic-card .description {
+            font-size: 13px;
+            color: #6B7280;
+            line-height: 1.5;
+        }
+        
+        /* Content Mogul Style */
+        .mogul-card {
+            font-family: 'Ubuntu', sans-serif;
+            width: 100%;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: box-shadow 160ms ease, border-color 160ms ease, transform 160ms ease;
+        }
+        
+        .mogul-card:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 10px 18px -10px rgba(0, 0, 0, 0.18);
+        }
+        
+        .mogul-card .image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+        }
+        
+        .mogul-card .content {
+            padding: 16px;
+        }
+        
+        .mogul-card .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #10b981;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        
+        .mogul-card .title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111827;
+            margin: 0 0 6px 0;
+        }
+        
+        .mogul-card .description {
+            font-size: 13px;
+            color: #374151;
+            line-height: 1.5;
+            font-weight: 400;
+        }
+        
+        .button-demo {
+            margin-top: 16px;
+            display: flex;
+            gap: 12px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+            transition: all 0.16s ease;
+        }
+        
+        .btn-generic-primary {
+            background: #3B82F6;
+            color: white;
+        }
+        
+        .btn-generic-primary:hover {
+            background: #2563eb;
+            transform: scale(1.02);
+        }
+        
+        .btn-mogul-primary {
+            font-family: 'Ubuntu', sans-serif;
+            background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+            color: white;
+            transition: box-shadow 160ms ease, filter 160ms ease, transform 160ms ease;
+        }
+        
+        .btn-mogul-primary:hover {
+            background: linear-gradient(135deg, #7e22ce 0%, #db2777 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 18px -10px rgba(147, 51, 234, 0.45);
+        }
+        
+        .diff-table {
+            width: 100%;
+            margin-top: 16px;
+            border-collapse: collapse;
+        }
+        
+        .diff-table th {
+            text-align: left;
+            padding: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #6B7280;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .diff-table td {
+            padding: 8px;
+            font-size: 13px;
+            border-bottom: 1px solid #f3f4f6;
+        }
+        
+        .diff-table code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: 'Monaco', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Design System Comparison</h1>
+        
+        <div class="comparison-grid">
+            <!-- Generic Design System -->
+            <div class="section generic">
+                <h2 class="section-title">Generic Design System (PENPOT_DESIGN_SYSTEM.md)</h2>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Color Palette</h3>
+                <div class="color-swatches">
+                    <div class="swatch" style="background: #3B82F6;"><span>#3B82F6</span><span class="name">Primary</span></div>
+                    <div class="swatch" style="background: #8B5CF6;"><span>#8B5CF6</span><span class="name">Secondary</span></div>
+                    <div class="swatch" style="background: #10B981;"><span>#10B981</span><span class="name">Success</span></div>
+                    <div class="swatch" style="background: #EF4444;"><span>#EF4444</span><span class="name">Error</span></div>
+                    <div class="swatch" style="background: #111827;"><span>#111827</span><span class="name">Gray-900</span></div>
+                    <div class="swatch" style="background: #6B7280;"><span>#6B7280</span><span class="name">Gray-500</span></div>
+                </div>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Typography</h3>
+                <p style="font-size: 13px; color: #6B7280; margin-bottom: 8px;"><strong>Font:</strong> Inter (system fallback)</p>
+                <p style="font-size: 13px; color: #6B7280; margin-bottom: 8px;"><strong>Weights:</strong> 400 (regular), 500 (medium), 600 (semibold), 700 (bold)</p>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Card Example</h3>
+                <div class="card-demo">
+                    <div class="generic-card">
+                        <div class="image">[Image Placeholder]</div>
+                        <div class="content">
+                            <span class="badge">Design</span>
+                            <h3 class="title">Card Component</h3>
+                            <p class="description">Clean, modern aesthetic with subtle interactions.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Button Example</h3>
+                <div class="button-demo">
+                    <button class="btn btn-generic-primary">Primary Action</button>
+                </div>
+            </div>
+            
+            <!-- Content Mogul Design System -->
+            <div class="section mogul">
+                <h2 class="section-title">Content Mogul (CONTENT_MOGUL_VISUAL_STYLE.md)</h2>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Color Palette</h3>
+                <div class="color-swatches">
+                    <div class="swatch" style="background: #9333ea;"><span>#9333ea</span><span class="name">Purple-600</span></div>
+                    <div class="swatch" style="background: #ec4899;"><span>#ec4899</span><span class="name">Pink-600</span></div>
+                    <div class="swatch" style="background: #10b981;"><span>#10b981</span><span class="name">Green-600</span></div>
+                    <div class="swatch" style="background: #dc2626;"><span>#dc2626</span><span class="name">Red-600</span></div>
+                    <div class="swatch" style="background: #111827;"><span>#111827</span><span class="name">Gray-900</span></div>
+                    <div class="swatch" style="background: #374151;"><span>#374151</span><span class="name">Gray-700</span></div>
+                </div>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Typography</h3>
+                <p style="font-size: 13px; color: #6B7280; margin-bottom: 8px;"><strong>Font:</strong> Ubuntu (Google Fonts)</p>
+                <p style="font-size: 13px; color: #6B7280; margin-bottom: 8px;"><strong>Weights:</strong> 300 (light), 400 (regular), 500 (medium), 700 (bold)</p>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Card Example</h3>
+                <div class="card-demo">
+                    <div class="mogul-card">
+                        <div class="image">Purple-Pink Gradient</div>
+                        <div class="content">
+                            <span class="badge">Success</span>
+                            <h3 class="title">Card Component</h3>
+                            <p class="description">Grounded aesthetic with refined shadows and 1px lift.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 style="font-size: 14px; font-weight: 600; margin: 20px 0 12px;">Button Example</h3>
+                <div class="button-demo">
+                    <button class="btn btn-mogul-primary">Primary Action</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Key Differences Table -->
+        <div class="section" style="grid-column: 1 / -1;">
+            <h2 class="section-title">Key Differences</h2>
+            <table class="diff-table">
+                <thead>
+                    <tr>
+                        <th>Aspect</th>
+                        <th>Generic Design System</th>
+                        <th>Content Mogul</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Brand Color</strong></td>
+                        <td><code>#3B82F6</code> (blue)</td>
+                        <td><code>#9333ea → #ec4899</code> (purple-pink gradient)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Font Family</strong></td>
+                        <td>Inter (neutral, system-like)</td>
+                        <td>Ubuntu (friendly, humanist)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hover Lift</strong></td>
+                        <td>2px translateY + moderate shadow</td>
+                        <td>1px translateY + tight shadow (grounded)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Animation Speed</strong></td>
+                        <td>200ms (standard)</td>
+                        <td>160ms (snappier) / 280ms (fadeIn)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shadow Style</strong></td>
+                        <td>Standard diffuse shadows</td>
+                        <td>Tight spread, low opacity (grounded)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Success Color</strong></td>
+                        <td><code>#10B981</code> (green-600)</td>
+                        <td><code>#10b981</code> (green-600) ✓ same</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Text Hierarchy</strong></td>
+                        <td>gray-900 / gray-600 / gray-400</td>
+                        <td>gray-900 / gray-700 / gray-600 (more steps)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Border Radius</strong></td>
+                        <td>8px (lg token)</td>
+                        <td>8px (rounded-lg) ✓ same</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Philosophy</strong></td>
+                        <td>Modern, clean, flexible</td>
+                        <td>"Grounded" - reduced floaty feel</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

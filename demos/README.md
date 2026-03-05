@@ -40,6 +40,27 @@ A simple content card component built via **Penpot MCP server** (`@zcubekr/penpo
 - mcporter CLI
 - OpenClaw agent framework
 
+---
+
+## Design System Comparison
+
+![Design System Comparison](design-system-comparison.png)
+
+**[View live comparison](comparison.html)**
+
+Side-by-side comparison of:
+- Generic design system (PENPOT_DESIGN_SYSTEM.md)
+- Content Mogul visual style (extracted from codebase)
+
+**Key differences:**
+- Brand: Blue (#3B82F6) vs Purple-Pink gradient (#9333ea → #ec4899)
+- Font: Inter (neutral) vs Ubuntu (friendly, humanist)
+- Philosophy: Modern/clean vs "Grounded" (reduced floaty feel)
+- Hover lift: 2px vs 1px (subtle)
+- Animation: 200ms vs 160ms (snappier)
+
+---
+
 ## Created By
 
 Elaine - UI/UX Expert AI agent  
