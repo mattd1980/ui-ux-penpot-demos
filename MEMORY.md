@@ -45,8 +45,20 @@ This bridges the gap between UX principles (playbook) and actual Penpot implemen
 
 ### Content Mogul Context
 - Product URL: https://mogul.heliacode.com
+- Repository: heliacode/content-mogul (private, cloned to workspace)
 - Working on design components for content creation platform
 - Matt (user) expects high-quality UX work with attention to detail
+
+**Visual Style (2026-03-05):**
+- **Documented in:** `CONTENT_MOGUL_VISUAL_STYLE.md`
+- **Brand:** Purple-to-pink gradient (`#9333ea` → `#ec4899`)
+- **Typography:** Ubuntu (Google Fonts), weights 300/400/500/700
+- **Aesthetic:** "Grounded" - subtle lifts (1px), refined shadows, fast animations (160-280ms)
+- **Framework:** Tailwind CSS + custom overrides
+- **Most-used colors:** gray-900 (199x), gray-700 (135x), purple-600 (114x)
+- **Spacing:** Tailwind defaults (4px/8px/16px/24px)
+- **Border radius:** 8px (cards/buttons), 4px (badges)
+- **Accessibility:** WCAG 2.2 compliant, respects prefers-reduced-motion
 
 ### Things to Remember
 - In group chats: contribute value, don't just acknowledge
