@@ -32,6 +32,17 @@
 - Function call syntax works: `mcporter call 'penpot.tool(arg: "value")'`
 - CLI arg passing can be tricky - use function syntax when flag style fails
 
+### Design System Foundation (2026-03-05)
+Created `PENPOT_DESIGN_SYSTEM.md` with:
+- **Design tokens**: spacing (8px base), typography scale, color system (light+dark), border radius, shadows
+- **Component state matrix**: button/input/card states (default/hover/focus/active/disabled/loading/error/empty)
+- **Wireframe checklist**: width constraints, padding tokens, all states, responsive, accessible
+- **Implementation notes**: text width calculations, spacing formulas, color palette structure
+- **Component library structure**: foundations → components → patterns
+- **Validation checklist**: 10-point QA before delivery
+
+This bridges the gap between UX principles (playbook) and actual Penpot implementation.
+
 ### Content Mogul Context
 - Product URL: https://mogul.heliacode.com
 - Working on design components for content creation platform
