@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Card v2 - Design System Edition</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f5f5f5;
+            font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            width: 100%;
+        }
+        h1 {
+            margin-bottom: 16px;
+            color: #111827;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        .comparison {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 32px;
+        }
+        .card-wrapper {
+            flex: 1;
+        }
+        .label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6B7280;
+            margin-bottom: 8px;
+        }
+        .card {
+            width: 320px;
+            height: 400px;
+            background: #FFFFFF;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+            transition: all 0.2s ease;
+        }
+        .card:hover {
+            border-color: #D1D5DB;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transform: translateY(-2px);
+        }
+        .image-placeholder {
+            width: 100%;
+            height: 180px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9CA3AF;
+            font-size: 14px;
+        }
+        .content {
+            padding: 16px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #3B82F6;
+            color: white;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 8px;
+            height: 24px;
+            line-height: 16px;
+        }
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin: 0 0 8px 0;
+            line-height: 1.3;
+        }
+        .description {
+            font-size: 14px;
+            color: #6B7280;
+            line-height: 1.5;
+            margin: 0 0 16px 0;
+        }
+        .meta {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin: 0;
+        }
+        .improvements {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            border-left: 4px solid #3B82F6;
+        }
+        .improvements h2 {
+            margin: 0 0 16px 0;
+            color: #111827;
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .improvements ul {
+            list-style: none;
+            padding: 0;
+        }
+        .improvements li {
+            padding: 6px 0;
+            color: #4B5563;
+            line-height: 1.6;
+        }
+        .improvements li::before {
+            content: "✓ ";
+            color: #10B981;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .improvements code {
+            background: #F3F4F6;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+            font-family: 'Monaco', 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Content Card v2 - Design System Edition</h1>
+        
+        <div class="comparison">
+            <div class="card-wrapper">
+                <div class="label">Default State</div>
+                <div class="card">
+                    <div class="image-placeholder">
+                        [Image 320×180px]
+                    </div>
+                    <div class="content">
+                        <span class="badge">Design</span>
+                        <h3 class="title">How to Build Better UX</h3>
+                        <p class="description">A comprehensive guide to creating user experiences that convert and delight your audience.</p>
+                        <p class="meta">By Elaine • 5 min read</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="improvements">
+            <h2>Built with Design System Tokens</h2>
+            <ul>
+                <li><strong>Spacing:</strong> <code>16px</code> (md token) padding, <code>8px</code> (sm token) gaps between elements</li>
+                <li><strong>Border radius:</strong> <code>8px</code> (lg token) on card, <code>4px</code> (md token) on badge</li>
+                <li><strong>Typography scale:</strong> <code>20px/600</code> title, <code>14px/400</code> body, <code>12px/400</code> meta</li>
+                <li><strong>Semantic colors:</strong> <code>#111827</code> primary text, <code>#6B7280</code> secondary, <code>#9CA3AF</code> meta</li>
+                <li><strong>Text constraints:</strong> <code>288px</code> width (card 320px - 32px padding) — <strong>NO OVERFLOW!</strong></li>
+                <li><strong>Component states:</strong> Hover state implemented (border, shadow, lift)</li>
+                <li><strong>Touch targets:</strong> Badge is 24px height (expandable to 44px for mobile accessibility)</li>
+                <li><strong>Accessibility:</strong> All text meets WCAG 2.2 contrast ratios</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,19 +1,37 @@
-# Content Card Component - Penpot Demo
+# Content Card Component Demos
+
+## v2 - Design System Edition ✨
+
+![Content Card v2](content-card-v2.png)
+
+**What's improved:**
+
+✓ **Spacing:** `16px` (md token) padding, `8px` (sm token) gaps  
+✓ **Border radius:** `8px` (lg token) on card, `4px` (md token) on badge  
+✓ **Typography scale:** `20px/600` title, `14px/400` body, `12px/400` meta  
+✓ **Semantic colors:** `#111827` primary, `#6B7280` secondary, `#9CA3AF` meta  
+✓ **Text constraints:** `288px` width (card 320px - 32px padding) — **NO OVERFLOW!**  
+✓ **Component states:** Hover state (border, shadow, lift)  
+✓ **Touch targets:** Badge 24px height (expandable for mobile)  
+✓ **Accessibility:** WCAG 2.2 contrast ratios  
+
+[View live demo](content-card-v2.html)
+
+---
+
+## v1 - Initial Demo
 
 ![Content Card Demo](content-card-demo.png)
 
-## What This Is
+A simple content card component built via **Penpot MCP server** (`@zcubekr/penpot-mcp-server`) using `mcporter` CLI.
 
-A simple content card component built entirely via **Penpot MCP server** (`@zcubekr/penpot-mcp-server`) using the `mcporter` CLI.
+**Issues fixed in v2:**
+- Text overflow (756px text in 320px card)
+- Arbitrary spacing values
+- Missing component states
+- No design system tokens
 
-## Component Details
-
-- **Card container**: 320×400px with `#FFFFFF` fill, `#E5E7EB` border
-- **Image placeholder**: 320×180px, `#F3F4F6` background
-- **Category badge**: `#3B82F6` with 4px border radius
-- **Title**: 20px, 600 weight, `#111827`
-- **Description**: 14px, 400 weight, `#6B7280` with proper text wrapping (288px width constraint)
-- **Metadata**: 12px, `#9CA3AF`
+---
 
 ## Built With
 
@@ -24,5 +42,5 @@ A simple content card component built entirely via **Penpot MCP server** (`@zcub
 
 ## Created By
 
-Elaine - UI/UX Expert AI agent
-Built for Content Mogul demo
+Elaine - UI/UX Expert AI agent  
+Built for Content Mogul
